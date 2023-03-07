@@ -12,7 +12,6 @@ namespace AddressBookAPI.Repositories
         public DapperContactRepository(ContactDetailsContext db)
         {
             _db = db;
-            Console.WriteLine("");
         }
 
         public IEnumerable<ContactModel> GetAllContacts()
