@@ -22,7 +22,8 @@ namespace AddressBookAPI.Repositories
         public int AddContact(ContactModel contact)
         {
             _dbo.ContactDetails.Add(contact);
-            return (int)_dbo.SaveChanges();
+            _dbo.SaveChanges();
+            return contact.Id;
         }
 
         public ContactModel GetContactById(int id)

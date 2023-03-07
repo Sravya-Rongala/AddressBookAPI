@@ -50,6 +50,7 @@ class ContactDetailsData
             return 0;
           }
       }).then(data => {
+        console.log(data);
       return data;
     });
   }
@@ -58,7 +59,7 @@ class ContactDetailsData
   {
     var Url = apiUrl+"/"+userId;
     const request = new Request(Url, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: headers,
       body: userData
     })
@@ -83,17 +84,3 @@ class ContactDetailsData
 }
 
 export let dataObj = new ContactDetailsData();
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

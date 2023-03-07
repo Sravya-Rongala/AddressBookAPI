@@ -35,6 +35,7 @@ class operations {
         return __awaiter(this, void 0, void 0, function* () {
             var formData = this.getUserDataFromForm(0);
             var userId = yield servicesObject.addUserData(formData);
+            console.log(userId);
             if (userId != 0) {
                 this.removeBackground(tagId);
                 tagId = userId;

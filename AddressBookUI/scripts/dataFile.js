@@ -56,6 +56,7 @@ class ContactDetailsData {
                     return 0;
                 }
             }).then(data => {
+                console.log(data);
                 return data;
             });
         });
@@ -64,7 +65,7 @@ class ContactDetailsData {
         return __awaiter(this, void 0, void 0, function* () {
             var Url = apiUrl + "/" + userId;
             const request = new Request(Url, {
-                method: 'PATCH',
+                method: 'PUT',
                 headers: headers,
                 body: userData
             });

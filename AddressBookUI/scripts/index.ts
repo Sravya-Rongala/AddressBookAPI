@@ -4,7 +4,6 @@ import { eventListeners } from './main.js';
 
 export var tagId: number;
 
-
 class operations {
 
     constructor() {
@@ -29,6 +28,7 @@ class operations {
     async addUserDataInList() {
         var formData = this.getUserDataFromForm(0);
         var userId = await servicesObject.addUserData(formData);
+        console.log(userId)
         if(userId!=0) {
         this.removeBackground(tagId);
         tagId = userId;
