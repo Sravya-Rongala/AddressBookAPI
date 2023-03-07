@@ -2,6 +2,7 @@ using AddressBookAPI.Service.Interfaces;
 using AddressBookAPI.Repositories;
 using AddressBookAPI.Infrastructure.Data;
 using AddressBookAPI.Services;
+using Microsoft.EntityFrameworkCore;
 
 
 //To solve Cors Error
@@ -28,17 +29,17 @@ builder.Services.AddSwaggerGen();
 
 //EF
 
-/*builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
+builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("default")
     ));
-builder.Services.AddScoped<IContactRepository, EFContactRepository>();
-builder.Services.AddScoped<ContactServices>();*/
+builder.Services.AddScoped<IContactServices, EFContactRepository>();
+builder.Services.AddScoped<ContactServices>();
 
 //DAPPER
-
+/*
 builder.Services.AddScoped<ContactDetailsContext>();
 builder.Services.AddScoped<IContactServices, DapperContactRepository>();
-builder.Services.AddScoped<ContactServices>();
+builder.Services.AddScoped<ContactServices>();*/
 
 
 var app = builder.Build();

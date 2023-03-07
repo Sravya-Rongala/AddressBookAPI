@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace AddressBookAPI.Migrations
+namespace AddressBook.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class DbMigrations : Migration

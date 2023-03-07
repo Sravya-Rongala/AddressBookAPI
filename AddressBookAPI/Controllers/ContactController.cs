@@ -40,10 +40,10 @@ namespace AddressBook.Controllers
            _contactServices.UpdateContactDetails(contact);
         }
 
-        [HttpDelete("{Id}")]
-        public void DeleteContact(int Id)
+        [HttpDelete("{id}")]
+        public void DeleteContact(int id)
         {
-            _contactServices.DeleteContact(Id);
+            _contactServices.DeleteContact(id);
             
         }
     }
