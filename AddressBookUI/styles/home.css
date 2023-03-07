@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Open+Sans:wght@500&family=PT+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+.page-content {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.contact-heading {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Open sans", sans-serif;
+}
+
+.person-contact-details {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 500px 400px 70px 70px;
+  gap: 50px;
+}
+
+.contact-details {
+  border: 1px solid darkgrey;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.contact-details div {
+  margin: 0px;
+  padding: 10px;
+}
+
+.contact-details div p {
+  margin: 0px;
+  font-family: "Open sans", sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+}
+
+.contact-details div p:first-child {
+  padding-bottom: 3px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contact-details:last-child {
+  border-bottom: red;
+}
+
+.person-bio-data span {
+  padding-left: 100px;
+  display: grid;
+  grid-template-rows: repeat(6,max-content);
+  padding-bottom: 20px;
+  font-family: "Open sans", sans-serif;
+  font-size: 15px;
+  letter-spacing: -0.5;
+}
+
+#person-bio-name {
+  font-size: 32px;
+  letter-spacing: -1;
+}
+
+#person-bio-mobile {
+  padding-bottom: 0px;
+}
+
+.edit-icon img {
+ width: 15px;
+ height: 15px;
+}
+
+.delete-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.edit-icon a,
+.delete-icon a{
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+  font-family: "Open sans", sans-serif;
+}

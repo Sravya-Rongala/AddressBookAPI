@@ -1,0 +1,80 @@
+.add-details-section ul li {
+  list-style-type: none;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  font-family: "Noto Sans";
+}
+
+.add-details-section ul {
+  margin: 0px;
+  padding: 5px 0px;
+}
+
+.contact-numbers-section {
+  display: grid;
+  grid-template-columns: repeat(2,300px);
+  gap: 15px;
+}
+
+.contact-numbers-section ul input[type="text"] {
+  width: 285px;
+  height: 40px;
+}
+
+.form-name-section input[type="text"],
+.form-email-section input[type="text"],
+.form-website-section input[type="text"] {
+  width: 600px;
+  height: 40px;
+}
+
+.form-address-section textarea {
+  overflow-y: hidden;
+  width: 600px;
+  height: 100px;
+  resize: none;
+}
+
+.add-details-section ul li:first-child {
+  padding-bottom: 4px;
+}
+
+.form-btn {
+  position: absolute;
+  left: 455px;
+}
+
+.form-btn  {
+  display: grid;
+  grid-template-columns: repeat(2,80px);
+  gap: 15px;
+}
+
+.form-btn input[type="button"] {
+  color: white;
+  background-color: rgb(80 150 11);
+  font-weight: 500;
+  width: 80px;
+  text-align: center;
+  height: 30px;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+}
+
+#user-form {
+    padding-left: 30px;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 60px;
+    right: 190px;
+    box-shadow: 0 0 10px #969696;
+    width: 670px;
+    height: 500px;
+    background-color: white;
+}
+
+#popup-form {
+  visibility: hidden;
+}

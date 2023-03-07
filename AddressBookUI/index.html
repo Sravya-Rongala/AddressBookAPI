@@ -1,0 +1,88 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" scale="1.0">
+    <link type="text/css" rel="stylesheet" href="./styles/header.css">
+    <link type="text/css" rel="stylesheet" href="./styles/home.css">
+    <link type="text/css" rel="stylesheet" href="./styles/userDetailsForm.css">
+    <script>var exports = {};</script>
+    <script defer src="./scripts/index.js" type="module"></script>    
+    <title>Technovert</title>
+</head>
+
+<body class="page-container">
+    <header>
+        <h1 class="page-title">Address Book</h1>
+        <nav class="nav-bar">
+            <div class="nav-menu">
+                <ul class="nav-items">
+                    <li><a href="./index.html">home</a></li>
+                    <li><a href="#" id="nav-add-btn">+add</a></li>
+                </ul>
+            </div>
+            <div class="blog-icon">
+                <img src="./images/blog-icon.png" alt="blog-icon" />
+            </div>
+        </nav>
+    </header>
+    <section class="page-content">
+
+        <h2 class="contact-heading">Contacts</h2>
+        <div class="person-contact-details">
+        <div class="contact-details" id="contact-details">
+            
+        </div>
+        <div class="person-bio-data">
+            <span id="person-bio-name"></span>
+            <span id="person-bio-email"></span>
+            <span id="person-bio-mobile"></span>
+            <span id="person-bio-landline"></span>
+            <span id="person-bio-website"></span>
+            <span id="person-bio-address"></span>
+        </div>
+        <div class="edit-icon"><a href="#"><img src="./images/edit1.jpg">Edit</a></div>
+        <div class="delete-icon"><a href="#"><img src="./images/delete1.png">Delete</a></div>
+        </div>
+
+        <div id="popup-form">
+            <div class="add-details-section" id="user-form">
+                <form class="details-form" action="#" method="post" id="user-details-form">
+                <ul class="form-name-section">
+                    <li>Name</li>
+                    <li><input type="text" class="form-name"></li>
+                </ul>
+                <ul class="form-email-section">
+                    <li>Email</li>
+                    <li><input type="text" class="form-email"></li>
+                </ul>
+                <div class="contact-numbers-section">
+                    <ul class="form-mobile-section">
+                        <li>Mobile</li>
+                        <li><input type="text" class="form-mobile"></li>
+                    </ul>
+                    <ul class="form-landline-section">
+                        <li>Landline</li>
+                        <li><input type="text" class="form-landline"></li>
+                    </ul>
+                </div>
+                <ul class="form-website-section">
+                    <li>Website</li>
+                    <li><input type=text class="form-website"></li>
+                </ul>
+                <ul class="form-address-section">
+                    <li>Address</li>
+                    <li><textarea class="form-address"></textarea></li>
+                </ul>
+                <ul class="form-btn">
+                    <li><input type="button" id="submit-btn"></li>
+                    <li><input type="button" id="cancel-btn" value="Cancel"></li>
+                </ul>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

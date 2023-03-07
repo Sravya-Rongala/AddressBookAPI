@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Open+Sans:wght@500&family=PT+Sans&display=swap');
+
+.page-container {
+    box-sizing:border-box;
+    margin: 0px;
+}
+
+.page-title {
+    line-height: 90px;
+    font-family: 'century gothic';
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    padding-left: 22px;
+    margin: 0px;
+    height: 89px;
+    background-color: #3399CC;
+}
+
+.nav-bar{
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 29px;
+}
+
+.nav-items {
+    text-transform: uppercase;
+    display: flex;
+    margin: 0px;
+    padding-left: 9px;
+}
+
+.nav-items a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+    padding:6px 11px;
+
+}
+
+.nav-items li{
+    list-style-type: none;
+}
+
+.blog-icon {
+    padding: 3px 25px;  
+}
+
+.blog-icon img {
+    height: 20px;
+}
+
+
+
