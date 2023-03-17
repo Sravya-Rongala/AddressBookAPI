@@ -41,5 +41,11 @@ class UserServices {
             return (yield contactList.length) > 0 ? contactList[0].id : undefined;
         });
     }
+    getMatchedContacts(searchInput) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var contactList = yield dataObj.getMatchedContacts(searchInput);
+            return yield contactList;
+        });
+    }
 }
 export let servicesObject = new UserServices();

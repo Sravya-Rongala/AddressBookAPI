@@ -1,6 +1,7 @@
 ﻿using AddressBookAPI.Domain.Models;
 using AddressBookAPI.Infrastructure.Data;
 using AddressBookAPI.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AddressBookAPI.Repositories
 {
@@ -43,6 +44,14 @@ namespace AddressBookAPI.Repositories
             ContactModel contact = this.GetContactById(Id);
             _dbo.ContactDetails.Remove(contact);
             _dbo.SaveChanges();
+        }
+
+        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        {
+            IEnumerable<ContactModel> results = _dbo.ContactDetails.Where(t => t.Name.Contains(inputString) ||
+                            t.Email.Contains(inputString) ||
+                            t.Mobile.Contains(inputString));
+            return results;
         }
 
     }

@@ -10,5 +10,6 @@ namespace AddressBookAPI.Service.Interfaces
         int AddContact(ContactModel contact);
         void UpdateContact(ContactModel contact);
         void DeleteContact(int id);
+        IEnumerable<ContactModel> GetMatchedContacts(string inputString);
     }
 }

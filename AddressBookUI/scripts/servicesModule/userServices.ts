@@ -30,6 +30,11 @@ class UserServices {
       return await contactList.length > 0 ? contactList[0].id : undefined;
    }
 
+   async getMatchedContacts(searchInput: string) {
+      var contactList = await dataObj.getMatchedContacts(searchInput);
+      return await contactList;
+   }
+
 }
 
 export let servicesObject = new UserServices();

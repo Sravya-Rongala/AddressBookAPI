@@ -3,7 +3,8 @@ using AddressBookAPI.Repositories;
 using AddressBookAPI.Infrastructure.Data;
 using AddressBookAPI.Services;
 using Microsoft.EntityFrameworkCore;
-
+using SimpleInjector;
+using SimpleInjector.Lifestyles;
 
 //To solve Cors Error
 
@@ -24,16 +25,42 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 
+//Simple Injector
+
+var container = new Container();
+container.Options.DefaultLifestyle = Lifestyle.Scoped;
+container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+
+builder.Services.AddSimpleInjector(container, options =>
+{
+    options.AddAspNetCore().AddControllerActivation();
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//EF
-
+//EF 
+/*
 builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("default")
     ));
+container.Register<IContactServices, EFContactRepository>();
+container.Register<ContactServices>();*/
+
+//DAPPER
+
+container.Register<ContactDetailsContext>();
+container.Register<IContactServices, DapperContactRepository>();
+container.Register<ContactServices>();
+
+
+//EF
+
+/*builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("default")
+    ));
 builder.Services.AddScoped<IContactServices, EFContactRepository>();
-builder.Services.AddScoped<ContactServices>();
+builder.Services.AddScoped<ContactServices>();*/
 
 //DAPPER
 /*

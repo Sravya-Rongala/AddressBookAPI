@@ -1,8 +1,8 @@
 import { operationsObject, tagId } from "../scripts/index.js";
 import { servicesObject } from '../scripts/servicesModule/userServices.js';
-import { User } from "./model/user.js";
+import { isFormValid } from "../scripts/index.js";
 
-export class eventListeners {
+export class EventListeners {
     constructor() {
         var buttonValue = document.getElementById('submit-btn') as HTMLInputElement;
 
@@ -24,34 +24,56 @@ export class eventListeners {
             this.removeEventListenerForDiv();
         });
 
-        // //DELETE
+        //DELETE
         var deleteIcon: HTMLElement = document.querySelector('.delete-icon');
-        deleteIcon.addEventListener("click", async() => {
-            operationsObject.deleteUserDataInTable(tagId);
+        deleteIcon.addEventListener("click", async () => {
+            operationsObject.deleteContactInTable(tagId);
             servicesObject.deleteUserData(tagId);
             var divTagId = document.getElementsByClassName('contact-details')[0] as HTMLElement;
             var id = divTagId.firstElementChild.id;
             var userData = await servicesObject.getContactById(parseInt(id));
             document.getElementById(id).style.backgroundColor = '#00b7ff30';
-            operationsObject.displayUserData(userData, parseInt(id));
+            operationsObject.displayContactData(userData, parseInt(id));
+        });
+
+        //SEARCH BAR 
+        var searchBar: HTMLInputElement = document.querySelector('.search-field');
+        searchBar.addEventListener('input', async () => {
+            var searchInput = searchBar.value;
+            var element = document.getElementsByClassName('contact-details')[0];
+            while (element.firstChild) {
+                element.removeChild(element.firstChild);
+            }
+            if (searchInput.length == 0) {
+                operationsObject.createContactTable();
+            }
+            else {
+                var userData = await servicesObject.getMatchedContacts(searchInput);
+
+                userData.forEach(element => {
+                    operationsObject.addContactDataInTable(element.id);
+                });
+
+            }
         });
 
         //SUBMIT BUTTON
         buttonValue.addEventListener('click', async (e) => {
             var x = e.target as HTMLInputElement;
-            if (x.value == "Add") {
+            if (x.value == "Add" && isFormValid == true) {
+                console.log(isFormValid)
                 document.getElementById('popup-form').style.visibility = "hidden";
                 this.addEventListenerForDiv();
-                operationsObject.addUserDataInList();
+                operationsObject.addContactDataInList();
             }
             if (x.value == "Edit") {
                 document.getElementById('popup-form').style.visibility = "hidden";
                 this.addEventListenerForDiv();
-                var formData = operationsObject.getUserDataFromForm(tagId);
+                var formData = operationsObject.getContactDataFromForm(tagId);
                 servicesObject.editUserData(formData, tagId);
                 var userData = await servicesObject.getContactById(tagId);
-                operationsObject.displayUserData(userData, tagId);
-                operationsObject.displayUserDataInTable(userData, tagId);
+                operationsObject.displayContactData(userData, tagId);
+                operationsObject.displayContactDataInTable(userData, tagId);
             }
         });
 

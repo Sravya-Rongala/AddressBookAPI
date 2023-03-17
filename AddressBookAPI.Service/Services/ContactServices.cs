@@ -37,5 +37,9 @@ namespace AddressBookAPI.Services
             _contactRepository.DeleteContact(Id);
         }
 
+        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        {
+            return _contactRepository.GetMatchedContacts(inputString);
+        }
     }
 }

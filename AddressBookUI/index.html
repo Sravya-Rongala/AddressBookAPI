@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="./styles/home.css">
     <link type="text/css" rel="stylesheet" href="./styles/userDetailsForm.css">
     <script>var exports = {};</script>
-    <script defer src="./scripts/index.js" type="module"></script>    
+    <script defer src="./scripts/index.js" type="module"></script>   
     <title>Technovert</title>
 </head>
 
@@ -29,10 +29,13 @@
     </header>
     <section class="page-content">
 
-        <h2 class="contact-heading">Contacts</h2>
+        <div class="contact-search-field">
+            <h2 class="contact-heading">Contacts</h2>
+            <input type="text" placeholder="Search...." class="search-field">
+        </div>
         <div class="person-contact-details">
         <div class="contact-details" id="contact-details">
-            
+     
         </div>
         <div class="person-bio-data">
             <span id="person-bio-name"></span>
@@ -50,17 +53,24 @@
             <div class="add-details-section" id="user-form">
                 <form class="details-form" action="#" method="post" id="user-details-form">
                 <ul class="form-name-section">
-                    <li>Name</li>
-                    <li><input type="text" class="form-name"></li>
+                    <li>Name
+                        <span id="name-mandatory" class="mandatory-fields">*
+                        </span>
+                    </li>
+                    <li><input type="text" class="form-name" id="name"></li>
                 </ul>
                 <ul class="form-email-section">
-                    <li>Email</li>
-                    <li><input type="text" class="form-email"></li>
+                    <li>Email
+                        <span id="email-mandatory" class="mandatory-fields">*</span>
+                    </li>
+                    <li><input type="text" class="form-email" id="email"></li>
                 </ul>
                 <div class="contact-numbers-section">
                     <ul class="form-mobile-section">
-                        <li>Mobile</li>
-                        <li><input type="text" class="form-mobile"></li>
+                        <li>Mobile
+                            <span class="mandatory-fields" id="mobile-mandatory">*</span>
+                        </li>
+                        <li><input type="text" class="form-mobile" id="mobile"></li>
                     </ul>
                     <ul class="form-landline-section">
                         <li>Landline</li>

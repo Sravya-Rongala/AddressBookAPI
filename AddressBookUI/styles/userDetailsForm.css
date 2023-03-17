@@ -78,3 +78,10 @@
 #popup-form {
   visibility: hidden;
 }
+
+.mandatory-fields {
+  padding-left: 10px;
+  color: red;
+  font-size: 12px;
+  font-family: "Noto Sans";
+}

@@ -56,7 +56,6 @@ class ContactDetailsData {
                     return 0;
                 }
             }).then(data => {
-                console.log(data);
                 return data;
             });
         });
@@ -85,6 +84,19 @@ class ContactDetailsData {
             yield fetch(request)
                 .then(response => {
                 response.json();
+            });
+        });
+    }
+    getMatchedContacts(inputString) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var Url = apiUrl + "/inputString?inputString=" + inputString;
+            const request = new Request(Url, {
+                method: 'GET',
+                headers: headers
+            });
+            return yield fetch(request)
+                .then(response => {
+                return response.json();
             });
         });
     }

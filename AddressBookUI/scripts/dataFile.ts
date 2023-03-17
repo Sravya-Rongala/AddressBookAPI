@@ -50,7 +50,6 @@ class ContactDetailsData
             return 0;
           }
       }).then(data => {
-        console.log(data);
       return data;
     });
   }
@@ -80,6 +79,18 @@ class ContactDetailsData
        response.json();
     });
   }
+
+  async getMatchedContacts(inputString :string): Promise<User[]>{
+    var Url = apiUrl+"/inputString?inputString="+inputString;
+    const request = new Request(Url, {
+    method: 'GET',
+    headers: headers
+  });
+  return await fetch(request)
+    .then(response => {
+    return response.json();
+  });
+}
 
 }
 

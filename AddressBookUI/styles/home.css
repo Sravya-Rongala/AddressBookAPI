@@ -48,8 +48,8 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.contact-details:last-child {
-  border-bottom: red;
+.contact-details{
+  border: none;
 }
 
 .person-bio-data span {
@@ -89,3 +89,20 @@
   font-size: 13px;
   font-family: "Open sans", sans-serif;
 }
+
+.contact-search-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-field{
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  border-color: black;
+  margin-right:10px;
+}
+
+
+

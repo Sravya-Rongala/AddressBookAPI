@@ -1,9 +1,11 @@
 using AddressBookAPI.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using AddressBookAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AddressBook.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("contacts")]
     public class ContactController : Controller
@@ -45,6 +47,12 @@ namespace AddressBook.Controllers
         {
             _contactServices.DeleteContact(id);
             
+        }
+
+        [HttpGet("inputString")]
+        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        {
+            return _contactServices.GetMatchedContacts(inputString);
         }
     }
 }
