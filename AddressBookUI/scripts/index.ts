@@ -139,7 +139,8 @@ class ContactOperations {
         var landline = (<HTMLInputElement>document.getElementsByClassName('form-landline')[0]).value;
         var website = (<HTMLInputElement>document.getElementsByClassName('form-website')[0]).value;
         var address = (<HTMLTextAreaElement>document.getElementsByClassName('form-address')[0]).value;
-        var formData = { id: userId, name: name, email: email, mobile: mobile, landline: landline, website: website, address: address };
+        var description = (<HTMLTextAreaElement>document.getElementsByClassName('form-description')[0]).value;
+        var formData = { id: userId, name: name, email: email, mobile: mobile, landline: landline, website: website, address: address,description: description };
         return formData;
     }
 

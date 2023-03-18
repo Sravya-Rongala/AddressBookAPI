@@ -7,5 +7,6 @@ export class User {
         this.landline = args.landline;
         this.website = args.website;
         this.address = args.address;
+        this.description = args.description;
     }
 }

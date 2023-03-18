@@ -1,4 +1,4 @@
-import { dataObj } from '../dataFile.js';
+import { dataObj } from '../data/dataFile.js';
 import { User } from '../model/user.js';
 
 class UserServices {

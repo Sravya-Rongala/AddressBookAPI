@@ -19,7 +19,7 @@
 .person-contact-details {
   padding-top: 20px;
   display: grid;
-  grid-template-columns: 500px 400px 70px 70px;
+  grid-template-columns: 400px 400px 50px 70px 70px;
   gap: 50px;
 }
 
@@ -82,7 +82,8 @@
 }
 
 .edit-icon a,
-.delete-icon a{
+.delete-icon a,
+.notes-icon a{
   text-transform: uppercase;
   text-decoration: none;
   color: black;

@@ -1,1 +1,3 @@
-﻿Select * from ContactDetails
+﻿
+
+Drop table ContactNotes

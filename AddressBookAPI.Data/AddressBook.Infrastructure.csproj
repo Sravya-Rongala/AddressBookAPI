@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AddressBookAPI.Domain\AddressBookAPI.Domain.csproj" />
-    <ProjectReference Include="..\AddressBookAPI.Service\AddressBookAPI.Service.csproj" />
   </ItemGroup>
 
 </Project>

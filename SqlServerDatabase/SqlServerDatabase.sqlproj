@@ -65,6 +65,7 @@
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
     <Build Include="dbo\Tables\ContactDetails.sql" />
     <Build Include="dbo\Tables\CompanyDetails.sql" />
+    <Build Include="dbo\Tables\ContactNote.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Script.sql" />

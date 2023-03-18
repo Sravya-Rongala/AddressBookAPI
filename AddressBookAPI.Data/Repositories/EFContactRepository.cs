@@ -1,11 +1,11 @@
 ﻿using AddressBookAPI.Domain.Models;
 using AddressBookAPI.Infrastructure.Data;
-using AddressBookAPI.Service.Interfaces;
+using AddressBookAPI.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace AddressBookAPI.Repositories
 {
-    public class EFContactRepository : IContactServices
+    public class EFContactRepository : IContactRepository
     {
 
         private ContactDbContext _dbo;
@@ -46,11 +46,11 @@ namespace AddressBookAPI.Repositories
             _dbo.SaveChanges();
         }
 
-        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        public IEnumerable<ContactModel> GetMatchedContacts(string searchString)
         {
-            IEnumerable<ContactModel> results = _dbo.ContactDetails.Where(t => t.Name.Contains(inputString) ||
-                            t.Email.Contains(inputString) ||
-                            t.Mobile.Contains(inputString));
+            IEnumerable<ContactModel> results = _dbo.ContactDetails.Where(t => t.Name.Contains(searchString) ||
+                            t.Email.Contains(searchString) ||
+                            t.Mobile.Contains(searchString));
             return results;
         }
 

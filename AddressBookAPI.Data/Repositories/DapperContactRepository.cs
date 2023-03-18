@@ -1,14 +1,13 @@
 ﻿using Dapper.Contrib.Extensions;
 using AddressBookAPI.Domain.Models;
-using AddressBookAPI.Service.Interfaces;
+using AddressBookAPI.Infrastructure.Interfaces;
 using AddressBookAPI.Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace AddressBookAPI.Repositories
 {
-    public class DapperContactRepository : IContactServices
+    public class DapperContactRepository : IContactRepository
     {
 
         private ContactDetailsContext _db;
@@ -18,7 +17,7 @@ namespace AddressBookAPI.Repositories
         }
 
         public IEnumerable<ContactModel> GetAllContacts()
-        {
+        { 
             return _db.connection.GetAll<ContactModel>();
         }
 
@@ -44,10 +43,10 @@ namespace AddressBookAPI.Repositories
             ContactModel contact = this.GetContactById(Id);
             _db.connection.Delete(contact);
         }
-        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        public IEnumerable<ContactModel> GetMatchedContacts(string searchString)
         { 
-            string sql = "SELECT * FROM ContactDetails WHERE name LIKE @inputString OR email LIKE @inputString OR mobile LIKE @inputString";
-            IEnumerable<ContactModel> results = _db.connection.Query<ContactModel>(sql, new { inputString= "%" + inputString + "%" });
+            string sql = "SELECT * FROM ContactDetails WHERE name LIKE @searchString OR email LIKE @searchString OR mobile LIKE @searchString";
+            IEnumerable<ContactModel> results = _db.connection.Query<ContactModel>(sql, new { searchString= "%" + searchString + "%" });
             return results;
         }
 

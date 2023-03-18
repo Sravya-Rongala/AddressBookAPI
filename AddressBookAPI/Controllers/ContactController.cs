@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using AddressBookAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace AddressBook.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/
     [ApiController]
     [Route("contacts")]
     public class ContactController : Controller
     {
         private ContactServices _contactServices;
-        
         public ContactController(ContactServices serviceObj)
         {
             _contactServices = serviceObj;
@@ -31,15 +31,15 @@ namespace AddressBook.Controllers
 
         [HttpPost]
         public int AddContact(ContactModel contact)
-        {
-           return _contactServices.AddContactDetails(contact);
+        { 
+            return _contactServices.AddContactDetails(contact);
         }
 
         [HttpPut("{id}")]
         public void UpdateContact(int id,ContactModel contact)
         {
-            contact.Id = id;    
-           _contactServices.UpdateContactDetails(contact);
+            contact.Id= id;
+            _contactServices.UpdateContactDetails(contact);
         }
 
         [HttpDelete("{id}")]
@@ -49,10 +49,10 @@ namespace AddressBook.Controllers
             
         }
 
-        [HttpGet("inputString")]
-        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        [HttpGet("searchString")]
+        public IEnumerable<ContactModel> GetMatchedContacts(string searchString)
         {
-            return _contactServices.GetMatchedContacts(inputString);
+            return _contactServices.GetMatchedContacts(searchString);
         }
     }
 }

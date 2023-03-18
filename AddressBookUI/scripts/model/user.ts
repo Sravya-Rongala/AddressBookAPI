@@ -6,6 +6,7 @@ export class User {
     landline: string;
     website: string;
     address: string;
+    description: string;
     constructor(args:User) {
         this.id=args.id;
         this.name = args.name;
@@ -14,5 +15,6 @@ export class User {
         this.landline = args.landline;
         this.website = args.website;
         this.address = args.address;
+        this.description = args.description
     }
 }
