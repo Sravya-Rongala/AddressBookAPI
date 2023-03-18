@@ -1,14 +1,14 @@
 ﻿using AddressBookAPI.Domain.Models;
 
-namespace AddressBookAPI.Service.Interfaces
+namespace AddressBookAPI.Infrastructure.Interfaces
 {
-    public interface IContactServices
+    public interface IContactRepository
     {
         ContactModel GetContactById(int id);
         IEnumerable<ContactModel> GetAllContacts();
 
-        int AddContactDetails(ContactModel contact);
-        void UpdateContactDetails(ContactModel contact);
+        int AddContact(ContactModel contact);
+        void UpdateContact(ContactModel contact);
         void DeleteContact(int id);
         IEnumerable<ContactModel> GetMatchedContacts(string searchString);
     }

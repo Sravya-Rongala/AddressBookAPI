@@ -1,4 +1,4 @@
-import { User } from "./model/user.js";
+import { User } from "../model/user.js";
 
 var apiUrl = 'https://localhost:7216/contacts';
 const headers = new Headers({

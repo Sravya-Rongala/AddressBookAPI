@@ -1,13 +1,14 @@
 ﻿using AddressBookAPI.Service.Interfaces;
 using AddressBookAPI.Domain.Models;
+using AddressBookAPI.Infrastructure.Interfaces;
 
 namespace AddressBookAPI.Services
 {
-    public class ContactServices
+    public class ContactServices : IContactServices
     {
 
-        private readonly IContactServices _contactRepository;
-        public ContactServices(IContactServices contactRepository)
+        private readonly IContactRepository _contactRepository;
+        public ContactServices(IContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
         }
@@ -37,9 +38,9 @@ namespace AddressBookAPI.Services
             _contactRepository.DeleteContact(Id);
         }
 
-        public IEnumerable<ContactModel> GetMatchedContacts(string inputString)
+        public IEnumerable<ContactModel> GetMatchedContacts(string searchString)
         {
-            return _contactRepository.GetMatchedContacts(inputString);
+            return _contactRepository.GetMatchedContacts(searchString);
         }
     }
 }

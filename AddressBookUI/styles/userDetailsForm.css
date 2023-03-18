@@ -1,7 +1,7 @@
 .add-details-section ul li {
   list-style-type: none;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: -0.5px;
   font-family: "Noto Sans";
 }
@@ -19,20 +19,21 @@
 
 .contact-numbers-section ul input[type="text"] {
   width: 285px;
-  height: 40px;
+  height: 30px;
 }
 
 .form-name-section input[type="text"],
 .form-email-section input[type="text"],
 .form-website-section input[type="text"] {
   width: 600px;
-  height: 40px;
+  height: 30px;
 }
 
-.form-address-section textarea {
+.form-address-section textarea,
+.form-description-section textarea {
   overflow-y: hidden;
   width: 600px;
-  height: 100px;
+  height: 75px;
   resize: none;
 }
 
@@ -67,11 +68,11 @@
     padding-left: 30px;
     padding-top: 20px;
     position: absolute;
-    bottom: 60px;
-    right: 190px;
+    bottom: 30px;
+    right: 280px;
     box-shadow: 0 0 10px #969696;
     width: 670px;
-    height: 500px;
+    height: 520px;
     background-color: white;
 }
 

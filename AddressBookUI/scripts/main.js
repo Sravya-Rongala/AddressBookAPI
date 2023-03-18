@@ -83,6 +83,7 @@ export class EventListeners {
             document.getElementById('popup-form').style.visibility = "hidden";
             this.addEventListenerForDiv();
         });
+        // var noteIcon = document.querySelector('.notes-icon') as HTMLElement;
     }
     removeEventListenerForDiv() {
         var contactDetails = document.getElementById('contact-details');

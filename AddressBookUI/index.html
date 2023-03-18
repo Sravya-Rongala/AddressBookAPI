@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="./styles/header.css">
     <link type="text/css" rel="stylesheet" href="./styles/home.css">
     <link type="text/css" rel="stylesheet" href="./styles/userDetailsForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>var exports = {};</script>
     <script defer src="./scripts/index.js" type="module"></script>   
     <title>Technovert</title>
@@ -44,9 +45,11 @@
             <span id="person-bio-landline"></span>
             <span id="person-bio-website"></span>
             <span id="person-bio-address"></span>
+            <span id="person-bio-notes"></span>
         </div>
         <div class="edit-icon"><a href="#"><img src="./images/edit1.jpg">Edit</a></div>
         <div class="delete-icon"><a href="#"><img src="./images/delete1.png">Delete</a></div>
+        <div class="notes-icon"><a href="#"><i class="fas fa-sticky-note"></i>Notes</a></div>
         </div>
 
         <div id="popup-form">
@@ -84,6 +87,11 @@
                 <ul class="form-address-section">
                     <li>Address</li>
                     <li><textarea class="form-address"></textarea></li>
+                </ul>
+                <ul class="form-description-section">
+                    <li>About You</li>
+                    <li><textarea class="form-description"></textarea></li>
+
                 </ul>
                 <ul class="form-btn">
                     <li><input type="button" id="submit-btn"></li>

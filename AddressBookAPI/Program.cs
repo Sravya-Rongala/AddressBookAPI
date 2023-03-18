@@ -1,10 +1,12 @@
-using AddressBookAPI.Service.Interfaces;
+using AddressBookAPI.Infrastructure.Interfaces;
 using AddressBookAPI.Repositories;
 using AddressBookAPI.Infrastructure.Data;
 using AddressBookAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
+using AddressBookAPI.Service.Services;
+using AddressBookAPI.DTO.ContactProfile;
 
 //To solve Cors Error
 
@@ -25,6 +27,11 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddAutoMapper((cfg =>
+{
+    cfg.AddProfile<ContactProfile>();
+}));
+
 //Simple Injector
 
 var container = new Container();
@@ -44,14 +51,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("default")
     ));
-container.Register<IContactServices, EFContactRepository>();
+container.Register<IContactRepository, EFContactRepository>();
 container.Register<ContactServices>();*/
 
 //DAPPER
 
 container.Register<ContactDetailsContext>();
-container.Register<IContactServices, DapperContactRepository>();
+container.Register<IContactRepository, DapperContactRepository>();
+container.Register<IContactNoteRepository, DapperContactNoteRepository>();
 container.Register<ContactServices>();
+container.Register<ContactNoteServices>();
 
 
 //EF
@@ -59,13 +68,13 @@ container.Register<ContactServices>();
 /*builder.Services.AddDbContext<ContactDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("default")
     ));
-builder.Services.AddScoped<IContactServices, EFContactRepository>();
+builder.Services.AddScoped<IContactRepository, EFContactRepository>();
 builder.Services.AddScoped<ContactServices>();*/
 
 //DAPPER
 /*
 builder.Services.AddScoped<ContactDetailsContext>();
-builder.Services.AddScoped<IContactServices, DapperContactRepository>();
+builder.Services.AddScoped<IContactRepository, DapperContactRepository>();
 builder.Services.AddScoped<ContactServices>();*/
 
 
