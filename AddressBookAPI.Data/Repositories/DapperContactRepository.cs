@@ -29,8 +29,16 @@ namespace AddressBookAPI.Repositories
             
         public ContactModel GetContactById(int id)
         {
-            ContactModel contact = _db.connection.Get<ContactModel>(id);
-            return contact;
+            try
+            {
+                ContactModel contact = _db.connection.Get<ContactModel>(id);
+                return contact;
+            }
+            catch 
+            {
+               ContactModel contactModel = null;
+                return contactModel;
+            }
         }
 
         public void UpdateContact(ContactModel contact)

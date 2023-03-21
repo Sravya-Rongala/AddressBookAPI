@@ -33,5 +33,15 @@ namespace AddressBookAPI.Service.Services
             _contactRepository.DeleteContactNote(Id);
         }
 
+        public IEnumerable<ContactNoteModel> GetAllContactNotes() 
+        { 
+            return _contactRepository.GetAllContactNotes();
+        }
+
+        public int GetContactNoteIdByContactId(int contactId)
+        {
+            return _contactRepository.GetContactNoteIdByContactId(contactId);
+        }
+
     }
 }

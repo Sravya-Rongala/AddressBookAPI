@@ -59,6 +59,7 @@ container.Register<ContactServices>();*/
 container.Register<ContactDetailsContext>();
 container.Register<IContactRepository, DapperContactRepository>();
 container.Register<IContactNoteRepository, DapperContactNoteRepository>();
+container.Register<EmployeeServices>();
 container.Register<ContactServices>();
 container.Register<ContactNoteServices>();
 

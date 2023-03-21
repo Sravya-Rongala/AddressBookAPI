@@ -1,58 +1,57 @@
 using AddressBookAPI.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using AddressBookAPI.Services;
 using Microsoft.AspNetCore.Authorization;
-
+using AddressBookAPI.Service.Services;
 
 namespace AddressBook.Controllers
 {
-    /*[Authorize]*/
+   /* [Authorize]*/
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("contacts")]
     public class ContactController : Controller
     {
-        private ContactServices _contactServices;
-        public ContactController(ContactServices serviceObj)
+        private EmployeeServices _employeeServices;
+        public ContactController(EmployeeServices serviceObj)
         {
-            _contactServices = serviceObj;
+            _employeeServices = serviceObj;
         }
 
-        [HttpGet]
-        public IEnumerable<ContactModel> GetAllContacts()
+        [HttpGet("all")]
+        public IEnumerable<ContactDTO> GetAllContacts()
         {
-            return _contactServices.GetAllContacts();
+            return _employeeServices.GetAllContacts();
         }
 
         [HttpGet("{id}")]
-        public ContactModel GetContactById(int id)
+        public ContactDTO GetContactById(int id)
         {
-            return _contactServices.GetContactById(id);
+            return _employeeServices.GetContactById(id);
         }
 
         [HttpPost]
-        public int AddContact(ContactModel contact)
-        { 
-            return _contactServices.AddContactDetails(contact);
+        public int AddContact(ContactDTO contact)
+        {
+            return _employeeServices.AddContact(contact);
         }
 
         [HttpPut("{id}")]
-        public void UpdateContact(int id,ContactModel contact)
+        public void UpdateContact(int id, ContactDTO contactDto)
         {
-            contact.Id= id;
-            _contactServices.UpdateContactDetails(contact);
+            contactDto.Id = id;
+            _employeeServices.UpdateContact(contactDto);
         }
 
         [HttpDelete("{id}")]
         public void DeleteContact(int id)
         {
-            _contactServices.DeleteContact(id);
-            
+            _employeeServices.DeleteContact(id);
         }
 
         [HttpGet("searchString")]
         public IEnumerable<ContactModel> GetMatchedContacts(string searchString)
         {
-            return _contactServices.GetMatchedContacts(searchString);
+            return _employeeServices.GetMatchedContacts(searchString);
         }
+
     }
 }

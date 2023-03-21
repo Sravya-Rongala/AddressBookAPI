@@ -8,6 +8,8 @@ namespace AddressBookAPI.Service.Interfaces
         void AddContactNote(ContactNoteModel contact);
         void UpdateContactNote(ContactNoteModel contact);
         void DeleteContactNote(int id);
+        IEnumerable<ContactNoteModel> GetAllContactNotes();
+        int GetContactNoteIdByContactId(int contactId);
 
     }
 }
